@@ -1,20 +1,20 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { ILogAction, ILoginUserInfo, IStoreData } from "../store/StoreTypes";
 
-const initialLoginUserInfo = <ILoginUserInfo>{};
+const initialLoginUserInfo: ILoginUserInfo = {} as ILoginUserInfo;
 const initialState = { loginUserInfo: initialLoginUserInfo } as IStoreData;
 
 const loginUserSlice = createSlice({
     name: "loginUserSlice",
     initialState,
     reducers: {
-        loginUser(state, action: ILogAction<ILoginUserInfo>) {
+        loginUser(state: IStoreData, action: ILogAction<ILoginUserInfo>) {
             state.loginUserInfo = action.payload;
         },
-        logOutUser(state, action: ILogAction<any>) {
+        logOutUser(state: IStoreData, action: ILogAction<unknown>) {
             state.loginUserInfo = {} as ILoginUserInfo;
         },
-        getUserInfo(state) {
+        getUserInfo(state: IStoreData) {
             return state;
         }
     }

@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "./hook/StoreHooks";
 import { loginUser, logOutUser } from "./state/slice/LoginUserSlice";
 import { ILoginUserInfo } from "./state/store/StoreTypes";
+import TestClass from "./Test";
 
 function App() {
   const [userName, setUserName] = useState<string>("");
@@ -12,8 +13,14 @@ function App() {
   const selector = useAppSelector((state) => state);
 
   const btnLoginOnClickHandler = () => {
+    const testClass = new TestClass();
+    testClass.testFunction1(Math.floor(Math.random() * 6) + 1, Math.floor(Math.random() * 6) + 1);
+    testClass.testFunction2(Math.floor(Math.random() * 6) + 1, Math.floor(Math.random() * 6) + 1);
+    testClass.testMethod1(Math.floor(Math.random() * 6) + 1, Math.floor(Math.random() * 6) + 1);
+
     dispatch(loginUser({ userName: userName } as ILoginUserInfo));
     setUserName("");
+    console.log("btnLoginOnClickHandler END");
   };
 
   return (

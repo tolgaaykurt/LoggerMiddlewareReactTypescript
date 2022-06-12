@@ -5,7 +5,7 @@ import { ILogAction } from "../../store/StoreTypes";
 export const logger: Middleware =
     (api: MiddlewareAPI) =>
         (next: AppDispatch) =>
-            <A extends ILogAction<any>>(action: A): A => {
+            <A extends ILogAction<unknown>>(action: A): A => {
                 /**========================================================================
                  *                           LOGGING
                  *========================================================================**/
