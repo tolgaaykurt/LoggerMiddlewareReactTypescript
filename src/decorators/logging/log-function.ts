@@ -6,7 +6,7 @@
 import ILogEntity from '../../services/logging/log-types';
 import { LoggingType } from './logging-types';
 
-export function log(loggingType: LoggingType) {
+export function logFunction(loggingType: LoggingType) {
     return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
         const toBeCalledMethod: Function = descriptor.value;
 
